@@ -29,8 +29,11 @@
 # Requirements
 **To run this main file named as ``main.py`` you need to download the things mentioned in the ``requirement.txt``**
 **Go to your IDE's terminal after cloning the repositry then type the following commands in the terminal of you local machine's terminal**
-<p align = "left" >
-``cd chatbot``
-```pip install requirement.txt```
-</p>
+
+```bash
+cd chatbot
+pip install requirement.txt
+```
+
+
 **This command will help you install all the required files that need to run this ``main.py``**
