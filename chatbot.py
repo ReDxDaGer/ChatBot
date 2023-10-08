@@ -10,6 +10,8 @@ pairs = [
     ["What is your name", ["I'm a chatbot. You can call me ChatGPT.", "I don't have a name, but you can call me Chatbot."]],
     ["Bye|bye|goodbye", ["Goodbye!", "Have a great day!"]],
     ["(.*)(how|can)(.*)help", ["Sure, I can help you with that. What do you need assistance with?"]],
+    ["Thank you|thanks", ["You're welcome!", "No problem, happy to help!"]],
+
     ["(.*)", ["I'm sorry, I don't understand. Can you please rephrase your question?"]],
 ]
 
