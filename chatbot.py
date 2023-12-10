@@ -19,7 +19,7 @@ chatbot = Chat(pairs, reflections)
 
 # Define a function to handle user input and chatbot responses
 def handle_input():
-    user_input = input_entry.get()
+    user_input = input_var.get()
     response_text.config(state=tk.NORMAL)
     response_text.insert(tk.END, f"You: {user_input}\n")
     
@@ -27,14 +27,15 @@ def handle_input():
     response_text.insert(tk.END, f"Chatbot: {response}\n")
     
     response_text.config(state=tk.DISABLED)
-    input_entry.delete(0, tk.END)
+    input_var.set("")  # Clear the entry
 
 # Create the main window
 window = tk.Tk()
 window.title("Chatbot")
 
-# Create and configure the input field
-input_entry = tk.Entry(window, width=50)
+# Create and configure the input field using StringVar
+input_var = tk.StringVar()
+input_entry = tk.Entry(window, width=50, textvariable=input_var)
 input_entry.pack(pady=10)
 input_entry.bind("<Return>", lambda event: handle_input())
 
