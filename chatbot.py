@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import scrolledtext
 from nltk.chat.util import Chat, reflections
 
-# Define the pairs for the chatbot
 pairs = [
     ["Hello|hi|hey", ["Hello!", "Hi there!", "Hey!"]],
     ["Help Me", ["I am here to help!"]],
@@ -14,38 +13,29 @@ pairs = [
     ["(.*)", ["I'm sorry, I don't understand. Can you please rephrase your question?"]],
 ]
 
-# Create the chatbot
 chatbot = Chat(pairs, reflections)
 
-# Define a function to handle user input and chatbot responses
 def handle_input():
     user_input = input_var.get()
     response_text.config(state=tk.NORMAL)
     response_text.insert(tk.END, f"You: {user_input}\n")
-    
     response = chatbot.respond(user_input)
     response_text.insert(tk.END, f"Chatbot: {response}\n")
-    
     response_text.config(state=tk.DISABLED)
-    input_var.set("")  # Clear the entry
+    input_var.set("")
 
-# Create the main window
 window = tk.Tk()
 window.title("Chatbot")
 
-# Create and configure the input field using StringVar
 input_var = tk.StringVar()
 input_entry = tk.Entry(window, width=50, textvariable=input_var)
 input_entry.pack(pady=10)
 input_entry.bind("<Return>", lambda event: handle_input())
 
-# Create and configure the response text area
 response_text = scrolledtext.ScrolledText(window, width=50, height=20, state=tk.DISABLED)
 response_text.pack()
 
-# Create and configure the send button
 send_button = tk.Button(window, text="Send", command=handle_input)
 send_button.pack()
 
-# Start the main loop
 window.mainloop()
